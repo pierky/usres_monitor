@@ -108,5 +108,5 @@ Blog: https://blog.pierky.com Twitter: `@pierky <https://twitter.com/pierky>`_
 
 .. |Build Status| image:: https://travis-ci.org/pierky/usres_monitor.svg?branch=master
     :target: https://travis-ci.org/pierky/usres_monitor
-.. |PYPI Version| image:: https://img.shields.io/pypi/v/usres_onitor.svg
+.. |PYPI Version| image:: https://img.shields.io/pypi/v/usresmonitor.svg
     :target: https://pypi.python.org/pypi/usresmonitor/
