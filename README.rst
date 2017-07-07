@@ -75,9 +75,10 @@ Both IPv4 and IPv6 can be used, also simultaneously with the same monitor object
 Installation
 ------------
 
-```
-pip install usresmonitor
-```
+.. code::
+
+        pip install usresmonitor
+
 
 Optionally, the [apsw](https://github.com/rogerbinns/apsw) SQLite library can be installed; in that case, it will be preferred during the setup of the backend database used by USREsMonitor.
 
