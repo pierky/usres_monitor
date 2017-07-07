@@ -66,6 +66,24 @@ Add now a second prefix:
 
 Two prefixes are printed, each one covering 8 SREs, for a total of 16 SREs.
 
+Both IPv4 and IPv6 can be used, also simultaneously with the same monitor object:
+
+```
+>>> from pierky.usres_monitor import UniqueSmallestRoutableEntriesMonitor
+>>> monitor = UniqueSmallestRoutableEntriesMonitor(target_prefix_len4=24, target_prefix_len6=56)
+>>> monitor.add_net("192.168.0.0/16")
+>>> monitor.add_net("10.0.0.0/8")
+>>> monitor.add_net("2001:db8:aaaa::/48")
+>>> ["first: {first_ip}, last: {last_ip}, cnt: {cnt}".format(**prefix) for prefix in monitor.get_prefixes(4)]
+['first: 192.168.0.0, last: 192.168.255.0, cnt: 256', 'first: 10.0.0.0, last: 10.255.255.0, cnt: 65536']
+>>> ["first: {first_ip}, last: {last_ip}, cnt: {cnt}".format(**prefix) for prefix in monitor.get_prefixes(6)]
+['first: 2001:db8:aaaa::, last: 2001:db8:aaaa:ff00::, cnt: 256']
+>>> monitor.get_count(4)
+65792
+>>> monitor.get_count(6)
+256
+```
+
 Installation
 ------------
 
