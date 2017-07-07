@@ -13,7 +13,6 @@ Prefixes can be added and removed as they come (for example from a BGP session) 
 
 Example:
 
-```
 >>> from pierky.usres_monitor import UniqueSmallestRoutableEntriesMonitor
 >>> monitor = UniqueSmallestRoutableEntriesMonitor(target_prefix_len4=24)
 >>> monitor.add_net("192.168.0.0/16")
@@ -21,54 +20,44 @@ Example:
 ['first: 192.168.0.0, last: 192.168.255.0, cnt: 256']
 >>> monitor.get_count(4)
 256
-```
 
 So, 192.168.0.0/16 contains 256 /24 subnets.
 
 Now, add a prefix that is already covered by the previous one:
 
-```
 >>> monitor.add_net("192.168.0.0/21")
 >>> ["first: {first_ip}, last: {last_ip}, cnt: {cnt}".format(**prefix) for prefix in monitor.get_prefixes(4)]
 ['first: 192.168.0.0, last: 192.168.255.0, cnt: 256']
-```
 
 Nothing changed. Add a prefix that covers the 2 already added before:
 
-```
 >>> monitor.add_net("192.0.0.0/8")
 >>> ["first: {first_ip}, last: {last_ip}, cnt: {cnt}".format(**prefix) for prefix in monitor.get_prefixes(4)]
 ['first: 192.0.0.0, last: 192.255.255.0, cnt: 65536']
-```
 
 Here it is, 192.0.0.0/8 covers both 192.168.0.0/16 and 192.168.0.0/21 and contains 65536 /24 subnets.
 
 Now remove the two larger prefixes:
 
-```
 >>> monitor.del_net("192.0.0.0/8")
 >>> monitor.del_net("192.168.0.0/16")
 >>> ["first: {first_ip}, last: {last_ip}, cnt: {cnt}".format(**prefix) for prefix in monitor.get_prefixes(4)]
 ['first: 192.168.0.0, last: 192.168.7.0, cnt: 8']
-```
 
 Only 192.168.0.0/21 remains, with its 8 /24 subnets.
 
 Add now a second prefix:
 
-```
 >>> monitor.add_net("192.168.8.0/21")
 >>> ["first: {first_ip}, last: {last_ip}, cnt: {cnt}".format(**prefix) for prefix in monitor.get_prefixes(4)]
 ['first: 192.168.0.0, last: 192.168.7.0, cnt: 8', 'first: 192.168.8.0, last: 192.168.15.0, cnt: 8']
 >>> monitor.get_count(4)
 16
-```
 
 Two prefixes are printed, each one covering 8 SREs, for a total of 16 SREs.
 
 Both IPv4 and IPv6 can be used, also simultaneously with the same monitor object:
 
-```
 >>> from pierky.usres_monitor import UniqueSmallestRoutableEntriesMonitor
 >>> monitor = UniqueSmallestRoutableEntriesMonitor(target_prefix_len4=24, target_prefix_len6=56)
 >>> monitor.add_net("192.168.0.0/16")
@@ -82,7 +71,6 @@ Both IPv4 and IPv6 can be used, also simultaneously with the same monitor object
 65792
 >>> monitor.get_count(6)
 256
-```
 
 Installation
 ------------
@@ -119,5 +107,5 @@ Blog: https://blog.pierky.com Twitter: `@pierky <https://twitter.com/pierky>`_
 
 .. |Build Status| image:: https://travis-ci.org/pierky/usres_monitor.svg?branch=master
     :target: https://travis-ci.org/pierky/usres_monitor
-.. |PYPI Version| image:: https://img.shields.io/pypi/v/usres_monitor.svg
-    :target: https://pypi.python.org/pypi/usres_monitor/
+.. |PYPI Version| image:: https://img.shields.io/pypi/v/usres_onitor.svg
+    :target: https://pypi.python.org/pypi/usresmonitor/
