@@ -24,8 +24,6 @@ import time
 from pierky.usres_monitor import UniqueSmallestRoutableEntriesMonitor, \
                                  USRESMonitorException
 
-DEBUG = True
-
 usres_monitor = None
 
 def new_usres(ip_ver, target_prefix_len):

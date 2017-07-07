@@ -1,0 +1,9 @@
+language: python
+before_install:
+  - pip install https://github.com/rogerbinns/apsw/releases/download/3.19.3-r1/apsw-3.19.3-r1.zip \
+    --global-option=fetch --global-option=--version --global-option=3.19.3 --global-option=--all \
+    --global-option=build --global-option=--enable-all-extensions
+install:
+  - pip install -r requirements.txt
+script:
+ - ./tests.py
