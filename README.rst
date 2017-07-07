@@ -5,7 +5,7 @@ Unique Smallest Routable Entries Monitor (USREsMonitor)
 
 This library is inspired by an issue opened by Thomas Mangin on the repository of [InvalidRoutesReporter](https://github.com/pierky/invalidroutesreporter): https://github.com/pierky/invalidroutesreporter/issues/1
 
-Given a set of IP prefixes, this library calculates the unique smallest routable entries (SREs) covered by them.
+Given a set (or stream) of IP prefixes, this library calculates the unique smallest routable entries (SREs) covered by them.
 
 De-duplication of overlapping prefixes is performed. SREs are calculated on the basis of a target prefix length that can be set on input.
 
@@ -78,12 +78,12 @@ Optionally, the [apsw](https://github.com/rogerbinns/apsw) SQLite library can be
 Future work
 -----------
 
-Add some example of how this library can be used (ExaBGP integration).
+Add some examples of how this library can be used (ExaBGP integration).
 
 Status
 ------
 
-**Pre-release**, looking for testers and reviewers.
+**First-release**, looking for testers and reviewers.
 
 Bug? Issues?
 ------------
