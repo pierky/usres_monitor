@@ -237,7 +237,9 @@ class UniqueSmallestRoutableEntriesMonitor(object):
                          (first, net.prefixlen, last, cnt)
             )
         except Exception as e:
-            if "UNIQUE constraint failed" in str(e):
+            if "UNIQUE constraint failed" in str(e) or \
+                "columns first, pref_len are not unique" in str(e):
+
                 raise USRESMonitorException(
                     "Processing {} but it was already in the db".format(net)
                 )
