@@ -3,7 +3,7 @@ Unique Smallest Routable Entries Monitor (USREsMonitor)
 
 |Build Status| |PYPI Version|
 
-This library is inspired by an issue opened by Thomas Mangin on the repository of [InvalidRoutesReporter](https://github.com/pierky/invalidroutesreporter): https://github.com/pierky/invalidroutesreporter/issues/1
+This library is inspired by an issue opened by Thomas Mangin on the repository of `InvalidRoutesReporter <https://github.com/pierky/invalidroutesreporter>`_: https://github.com/pierky/invalidroutesreporter/issues/1
 
 Given a set (or stream) of IP prefixes, this library calculates the unique smallest routable entries (SREs) covered by them.
 
@@ -80,7 +80,7 @@ Installation
         pip install usresmonitor
 
 
-Optionally, the [apsw](https://github.com/rogerbinns/apsw) SQLite library can be installed; in that case, it will be preferred during the setup of the backend database used by USREsMonitor.
+Optionally, the `apsw <https://github.com/rogerbinns/apsw>`_ SQLite library can be installed; in that case, it will be preferred during the setup of the backend database used by USREsMonitor.
 
 Future work
 -----------
